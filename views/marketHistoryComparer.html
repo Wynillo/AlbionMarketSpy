@@ -1,0 +1,97 @@
+<form id='form' name="form" action="javascript:;" onsubmit="generateChart(this)">
+    <script src="../models/marketHistoryModel.js"></script>
+    <script src="../js/libs/marketHistoryComparer.js"></script>
+    <div class="row">
+        <div class="col-md-9">
+            <h2 class="display-4">Market History Comparer </h2>
+        </div>
+    </div>
+    <hr>
+    <div id="body_upRecipe">
+        <div class="card border-dark" style="min-height: 775px;">
+            <div class="card-header bg-dark text-white">
+                <div class="row">
+                    <div class="form-group col-6 col-lg-4">
+                        <label>History Until</label>
+                        <div class="input-group date">
+                            <input id="datepicker" name="datepicker" type="text" class="form-control" onchange="javascript:generateChart()"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-6 col-lg-4">
+                        <label>Item Type</label>
+                        <select id="item_type" name="item_type" class="form-control bg-light" onchange="javascript:generateChart()">
+                            <option value="_HIDE">Hide</option>
+                            <option value="_LEATHER">Leather</option>
+                            <option value="_FIBER">Fiber</option>
+                            <option value="_CLOTH">Cloth</option>
+                            <option value="_ORE">Ore</option>
+                            <option value="_METALBAR">Metal Bar </option>
+                            <option value="_WOOD">Wood</option>
+                            <option value="_PLANKS">Plank</option>
+                            <option value="_ROCK">Rock</option>
+                            <option value="_STONEBLOCK">Stone</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-6 col-lg-2">
+                        <label>Tier</label>
+                        <select id="tier" name="tier" class="form-control bg-light" onchange="javascript:generateChart()">
+                            <option value="4">Tier 4</option>
+                            <option value="5">Tier 5</option>
+                            <option value="6">Tier 6</option>
+                            <option value="7">Tier 7</option>
+                            <option value="8">Tier 8</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-6 col-lg-2">
+                        <label>Enchantment</label>
+                        <select id="enchantment" name="enchantment" onchange="javascript:generateChart()" class="form-control bg-light">
+                            <option value="">.0</option>
+                            <option value="_LEVEL1@1">.1</option>
+                            <option value="_LEVEL2@2">.2</option>
+                            <option value="_LEVEL3@3">.3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-6 col-lg-4">
+                        <label>Compare this city</label>
+                        <select id="city1" name="city1" class="form-control bg-light" onchange="javascript:generateChart()">
+                            <option value="">All</option>
+                            <option value="martlock,bridgewatch,fortsterling,lymhurst,thetford">All but Caerleon</option>
+                            <option value="caerleon">Caerleon</option>
+                            <option value="martlock">Martlock</option>
+                            <option value="bridgewatch">Bridgewatch</option>
+                            <option value="fortsterling">Fort Sterling</option>
+                            <option value="lymhurst">Lymhurst</option>
+                            <option value="thetford">Thetford</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-6 col-lg-4">
+                        <label>with this city</label>
+                        <select id="city2" name="city2" class="form-control bg-light" onchange="javascript:generateChart()">
+                            <option value="">All</option>
+                            <option value="martlock,bridgewatch,fortsterling,lymhurst,thetford">All but Caerleon</option>
+                            <option value="martlock">Martlock</option>
+                            <option value="caerleon">Caerleon</option>
+                            <option value="bridgewatch">Bridgewatch</option>
+                            <option value="fortsterling">Fort Sterling</option>
+                            <option value="lymhurst">Lymhurst</option>
+                            <option value="thetford">Thetford</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-transparent text-dark">                
+                <div id='graph-container' class="container">
+                    <canvas id="currentChart"></canvas>
+                </div>
+            </div>
+                <div id="body_cardFooter" class="card-footer text-center alert alert-info mb-0">
+                    <h5>
+                        Proudly powered by <a href="https://forum.albiononline.com/index.php/Thread/117073-ARCH-The-Fallen-PVP-Gilde-in-Martlock/">The-Fallen</a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
